@@ -1,0 +1,39 @@
+import javax.swing.JOptionPane;
+
+
+public class AlteraDados {
+	
+	public static void alteracli() {
+		
+		int aux=0,p=0;
+		String nomeaux="",s="";
+		
+		nomeaux = JOptionPane.showInputDialog("Nome Procurado: ");
+		
+		for (int i=0;i<=menu.c;i++)
+		{			
+				if (nomeaux.equals(menu.nome[i]))
+				{
+					p=i;
+					aux=1;
+				}
+		}		
+		
+		if (aux == 1)
+		{
+			s = menu.codcli[p]+" "+menu.nome[p]+" "+menu.fone[p];
+			
+			JOptionPane.showMessageDialog(null, s);
+			menu.nome[p] = JOptionPane.showInputDialog("Novo Nome: ");
+			menu.fone[p] = JOptionPane.showInputDialog("Novo Telefone: ");
+			
+			s = "     "+menu.codcli[p]+"        "+menu.nome[p]+"     "+menu.fone[p];
+		}
+		
+		if ((aux==0)&&(!nomeaux.equals("")))
+			s = "Nenhum Cliente com este nome";
+		JOptionPane.showMessageDialog(null, "Código  Nome      Fone\n"+s);
+
+	}
+
+}
