@@ -1,0 +1,75 @@
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+public class Form1 extends Frame
+
+implements ActionListener{ 
+	JButton  b1,b2,b3,b4;
+	
+Form1(){
+	super("netWare"); //caption do formulario
+	addWindowListener(new WindowAdapter(){
+		public void closing(WindowEvent e)
+		{
+			System.exit(0);
+		}
+	});
+	
+	 setSize(600,300);
+	 setLocation(200,200);
+	 setBackground(Color.GRAY);
+	 setForeground(Color.BLACK);
+	 setResizable(false);
+	 setLayout(null);
+	 
+	 //botao sair
+   b1=new JButton("Sair");
+   add(b1);
+   b1.addActionListener(this);
+   b1.setBounds(405,265,80,25);
+   
+   //botao desabilitar
+   b2=new JButton("Desabilitar");
+   add(b2);
+   b2.addActionListener(this);
+   b2.setBounds(492,265,100,25);
+   
+   
+   //botao habilitar
+   
+   b3=new JButton("habilitar");
+   add(b3);
+   b3.addActionListener(this);
+   b3.setBounds(310,265,90,25);
+   
+   
+   //botao 4
+   
+   b4=new JButton("formulario 2");
+   add(b4);
+   b4.setBounds(200,200,120,25);
+   b4.addActionListener(this); 
+   
+   
+   }
+public void actionPerformed(ActionEvent e){
+	String click=e.getActionCommand();
+	if (click.equals("Sair"))
+		System.exit(0);
+	if (click.equals("desabilitar"))
+		b1.disable();
+	if (click.equals("habilitar"))
+		b2.enable();
+/*	if (click.equals("formulario 2")){
+		Form2 fr=new Form2();
+	    fr.Show();
+	    hide();
+	    }*/
+	    }
+public static void main(String [] args){
+	Form1 fr=new Form1();
+	fr.show();
+	
+}
+
+}
